@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>MyFlickr</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+
+    <script src="/script/app.js"></script>
+
+    <link rel="stylesheet" href="style/flickr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body ng-app="myflickr" ng-controller="Mycontroller">
+            <div class="container">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <h1>Flickr Gallery</h1>
+                            <p>author:<mark>GaryLee<mark/></p>
+                            <p><small><a href="mailto:Garyleefighthz@gmail.com">Garyleefighthz@gmail.com</a></small></p>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="btn-group pin-button-group">
+                                <label ng-click="select(false)" class="btn btn-default pin-button"
+                                       ng-class="{'btn-danger': pin == false}">All</label>
+                                <label ng-click="select(true)" class="btn btn-default pin-button"
+                                       ng-class="{'btn-danger': pin == true}">Pinned</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div id="searchBox" class="col-md-4 pull-right">
+                        <div class="input-group search-input-group">
+                            <input type="text" class="form-control" placeholder="Search Tags" ng-model="search"
+                            ng-change="logic()"/>
+                            <span class="input-group-addon search-addon">
+                                        <label class="btn btn-default search-button">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                <div deckgrid source="filterphotos" class="deckgrid">
+                    <div class="a-card" ng-mouseover="hoverPin = true" ng-mouseleave="hoverPin = false">
+                        <a ng-href="{{card.link}}" target="_blank">
+                            <img src="{{card.src}}">
+                        </a>
+                        <h3>{{card.title}}</h3>
+                        <div class="des">
+                            author:{{card.des}}<br>
+                            tags:{{card.tags}}
+                        </div>
+                        <div class="a-card-pin">
+                            <img src="/image/pushpin-64.png" class="a-card-pin-icon" ng-show="hoverPin || card.pinned"
+                                 ng-click="mother.addfavor(card.originalIndex)">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+</body >
+</html>
+

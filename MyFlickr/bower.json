@@ -1,0 +1,14 @@
+{
+  "name": "myflickr",
+  "description": "NodeJs+AngularJs",
+  "main": "index.js",
+  "authors": [
+    "Garylee"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "angular-deckgrid": "^0.5.0",
+    "angular": "angularjs#^1.5.8"
+  }
+}
