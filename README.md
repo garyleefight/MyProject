@@ -1,5 +1,6 @@
 # MyProject
-1.NBA ----- Environment: tomcat 7  ----java EE demo without structure.
+1.NBA ----- Environment: tomcat 7  ----java EE demo without structure.	
+
 2.MyFlicker ------ Node.js 
   steps: 1. npm install
          2. bower install
